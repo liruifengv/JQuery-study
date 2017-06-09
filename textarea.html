@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多行文本框应用</title>
+    <style>
+        .msg{
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid #fa0000;
+            width: 300px;
+            padding: 20px;
+        }
+        .msg_caption{
+            margin-bottom: 20px;
+        }
+        #bigger,#smaller,#up,#down{
+            padding: 5px;
+            border: 1px solid #aaa;
+            color: #fa0000;
+            background: #fff;
+            cursor: pointer;
+        }
+        #bigger:hover,#smaller:hover,#down:hover,#up:hover{
+            border: 1px solid #f00;
+            color: #fff;
+            background: #f00;
+        }
+
+    </style>
+</head>
+<body>
+<form>
+    <div class="msg">
+        <div class="msg_caption">
+            <span id="bigger">放大</span>
+            <span id="smaller">缩小</span>
+            <span id="up">向上</span>
+            <span id="down">向下</span>
+        </div>
+        <div>
+            <textarea id="comment" cols="30" rows="8">多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化，多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.
+            </textarea>
+        </div>
+    </div>
+</form>
+
+<script src="jquery/dist/jquery.js"></script>
+<script>
+    $(function () {
+        var $comment=$('#comment');
+        $('#bigger').click(function () {
+            if(!$comment.is(":animated")){
+                if($comment.height()<500){
+                    //$comment.height($comment.height()+50);
+                    $comment.animate({height:"+=50"},400);
+                }
+            }
+
+        });
+        $('#smaller').click(function () {
+            if(!$comment.is(":animated")){
+                if($comment.height()>50){
+                    //$comment.height($comment.height()-50);
+                    $comment.animate({height:"-=50"},400);
+                }
+            }
+        })
+        $('#up').click(function () {
+            if(!$comment.is(":animated")){
+                $comment.animate({scrollTop:"-=50"},400);
+            }
+        })
+        $('#down').click(function () {
+            if(!$comment.is(":animated")){
+                $comment.animate({scrollTop:"+=50"},400);
+            }
+        })
+    })
+</script>
+</body>
+</html>
